@@ -1,0 +1,1 @@
+https://github.com/cs-chan/Total-Text-Dataset
