@@ -1,0 +1,1 @@
+Incidental Scene Text Challenge (Detection)
