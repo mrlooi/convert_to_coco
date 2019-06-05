@@ -14,10 +14,11 @@ BLUE = (255,0,0)
 
 VIS = False
 
-root_img_dir = "./Images"
-root_annot_dir = "./Groundtruth/Polygon"
+root_img_dir = "/media/bot/hd1/datasets/ICDAR/2017/total_text/Images"
+root_annot_dir = "/media/bot/hd1/datasets/ICDAR/2017/total_text/Annotations"
 
-dataset = "Train"
+# dataset = "Train" 
+dataset = "Test" 
 
 img_dir = osp.join(root_img_dir, dataset)
 annot_dir = osp.join(root_annot_dir, dataset)
@@ -26,7 +27,7 @@ img_files = natsorted(os.listdir(img_dir))
 # img_files = [f for f in img_files if "664" in f]
 
 # coco init
-coco_annot = CocoAnnotationClass(["text"], "OCR") # COCO IS 1-indexed, don't include BG CLASS
+coco_annot = CocoAnnotationClass(["text"], "icdar17_total_text") # COCO IS 1-indexed, don't include BG CLASS
 cls_idx = 1 # default 
 
 ANNOT_ID = 0
@@ -72,4 +73,4 @@ for fx, f in enumerate(img_files, 1):
 
     coco_annot.add_image(IMG_ID, img_width, img_height, f)
 
-coco_annot.save("coco_%s.json"%(dataset))
+coco_annot.save("icdar_2017_total_text_%s.json"%(dataset))
